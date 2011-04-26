@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("FluentTime")]
-[assembly: AssemblyDescription("A fluent interface for working with dates and times")]
+[assembly: AssemblyDescription("A fluent interface in C# for working with dates and times on the .NET framework")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
