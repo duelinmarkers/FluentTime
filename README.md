@@ -17,3 +17,7 @@ To Do
 -----
 
 "Abstract" time spans with variable-length calendar units like month, year, and quarter.
+
+---
+
+Copyright 2011 ThoughtWorks, Inc. See LICENSE.txt for licensing info.
