@@ -12,3 +12,4 @@ Do stuff like this:
     Assert.That(actual, Is.LessThan(50.Milliseconds().After(expected)));
     ...
     var bestDaysOfMyLife = 30.days().Ago()
+

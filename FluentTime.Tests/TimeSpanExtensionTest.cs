@@ -48,5 +48,15 @@ namespace FluentTime.Tests
 			Assert.That(actual.Ticks, Is.GreaterThanOrEqualTo(expected.Ticks));
 			Assert.That(actual, Is.LessThan(50.Milliseconds().After(expected)));
 		}
+		
+		[Test]
+		public void Creates_a_DateTimeOffset_in_the_future_using_the_current_local_offset()
+		{
+			var expected = DateTimeOffset.Now.AddHours(3);
+			var actual = 3.Hours().FromNow();
+			Assert.AreEqual(expected.Offset, actual.Offset);
+			Assert.That(actual.Ticks, Is.GreaterThanOrEqualTo(expected.Ticks));
+			Assert.That(actual, Is.LessThan(50.Milliseconds().After(expected)));
+		}
 	}
 }
