@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using NUnit.Framework.SyntaxHelpers;
 
 namespace FluentTime.Tests
 {
@@ -36,6 +37,16 @@ namespace FluentTime.Tests
 			var actual = 3.Hours().After(DateTimeOffset.Parse("2011/04/25 9:17:00 PM -5:00"));
 			Assert.AreEqual(expected.DateTime, actual.DateTime);
 			Assert.AreEqual(expected.Offset, actual.Offset);
+		}
+		
+		[Test]
+		public void Creates_a_DateTimeOffset_in_the_past_using_the_current_local_offset()
+		{
+			var expected = DateTimeOffset.Now.AddHours(-3);
+			var actual = 3.Hours().Ago();
+			Assert.AreEqual(expected.Offset, actual.Offset);
+			Assert.That(actual.Ticks, Is.GreaterThanOrEqualTo(expected.Ticks));
+			Assert.That(actual, Is.LessThan(50.Milliseconds().After(expected)));
 		}
 	}
 }
