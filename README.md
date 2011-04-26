@@ -11,7 +11,10 @@ Do stuff like this:
     ...
     Assert.That(actual, Is.LessThan(50.Milliseconds().After(expected)));
     ...
-    var bestDaysOfMyLife = 30.days().Ago()
+    var bestDaysOfMyLife = 30.Days().Ago()
+
+The library supports both DateTime and DateTimeOffset and returns the same
+type you start with. The Offset of the input DateTimeOffset is maintained.
 
 To Do
 -----
