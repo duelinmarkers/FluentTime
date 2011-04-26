@@ -13,3 +13,7 @@ Do stuff like this:
     ...
     var bestDaysOfMyLife = 30.days().Ago()
 
+To Do
+-----
+
+"Abstract" time spans with variable-length calendar units like month, year, and quarter.
