@@ -3,7 +3,7 @@ using System;
 
 namespace FluentTime
 {
-	public class VariableTimeSpan
+	public struct VariableTimeSpan : IEquatable<VariableTimeSpan>
 	{
 		private readonly int years;
 		private readonly int months;
@@ -52,6 +52,33 @@ namespace FluentTime
 		public static DateTimeOffset operator +(DateTimeOffset dateTime, VariableTimeSpan span)
 		{
 			return span.After(dateTime);
+		}
+		
+		public bool Equals(VariableTimeSpan other)
+		{
+			return months == other.months && years == other.years;
+		}
+		
+		public override bool Equals(object obj)
+		{
+			if (!(obj is VariableTimeSpan))
+				return false;
+			return Equals((VariableTimeSpan)obj);
+		}
+		
+		public override int GetHashCode()
+		{
+			return months.GetHashCode() ^ years.GetHashCode();
+		}
+		
+		public static bool operator ==(VariableTimeSpan one, VariableTimeSpan other)
+		{
+			return one.Equals(other);
+		}
+		
+		public static bool operator !=(VariableTimeSpan one, VariableTimeSpan other)
+		{
+			return !(one == other);
 		}
 	}
 }

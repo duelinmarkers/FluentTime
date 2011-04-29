@@ -80,5 +80,24 @@ namespace FluentTime.Tests
 			Assert.AreEqual(DateTimeOffset.Parse("2011/02/28 12:17:00 AM -4:00"), 
 			                oneYearOneMonth.AddTo(DateTimeOffset.Parse("2010/01/28 12:17:00 AM -4:00")));
 		}
+		
+		[Test]
+		public void Compares_equality_in_basic_cases ()
+		{
+			Assert.IsTrue(new VariableTimeSpan(2, 1) == new VariableTimeSpan(2, 1));
+			Assert.IsFalse(new VariableTimeSpan(2, 1) != new VariableTimeSpan(2, 1));
+			Assert.IsTrue(new VariableTimeSpan(2, 1) != new VariableTimeSpan(2, 2));
+			Assert.IsFalse(new VariableTimeSpan(2, 1) == new VariableTimeSpan(2, 2));
+			Assert.IsTrue(new VariableTimeSpan(2, 1) != new VariableTimeSpan(1, 1));
+			Assert.IsFalse(new VariableTimeSpan(2, 1) == new VariableTimeSpan(1, 1));
+		}
+		
+		[Test]
+		public void Generates_reasonable_hash_codes ()
+		{
+			Assert.IsTrue(new VariableTimeSpan(2, 1).GetHashCode() == new VariableTimeSpan(2, 1).GetHashCode());
+			Assert.IsTrue(new VariableTimeSpan(2, 1).GetHashCode() != new VariableTimeSpan(2, 2).GetHashCode());
+			Assert.IsTrue(new VariableTimeSpan(2, 1).GetHashCode() != new VariableTimeSpan(1, 1).GetHashCode());
+		}
 	}
 }
