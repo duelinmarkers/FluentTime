@@ -50,6 +50,15 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
+		public void Creates_VariableTimeSpans_readably ()
+		{
+			Assert.That(2.Months(), Is.EqualTo(new VariableTimeSpan(0, 2)));
+			Assert.That(2.Years(), Is.EqualTo(new VariableTimeSpan(2, 0)));
+			Assert.That(1.Month(), Is.EqualTo(new VariableTimeSpan(0, 1)));
+			Assert.That(1.Year(), Is.EqualTo(new VariableTimeSpan(1, 0)));
+		}
+		
+		[Test]
 		public void Stacks_TimeSpans_readably_in_plural_and_singular ()
 		{
 			Assert.That(2.Weeks(2.Days(3.Hours(4.Minutes(15.Seconds(5.Milliseconds()))))), 

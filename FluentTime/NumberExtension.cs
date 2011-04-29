@@ -5,6 +5,8 @@ namespace FluentTime
 {
 	public static class NumberExtension
 	{
+		public static VariableTimeSpan Years(this int y) { return new VariableTimeSpan(y, 0); }
+		public static VariableTimeSpan Months(this int m) { return new VariableTimeSpan(0, m); }
 		public static TimeSpan Weeks(this double i) { return TimeSpan.FromDays(i * 7); }
 		public static TimeSpan Days(this double i) { return TimeSpan.FromDays(i); }
 		public static TimeSpan Hours(this double i) { return TimeSpan.FromHours(i); }
@@ -13,6 +15,8 @@ namespace FluentTime
 		public static TimeSpan Milliseconds(this double i) { return new TimeSpan((long)(TimeSpan.TicksPerMillisecond * i)); }
 		public static TimeSpan Ticks(this long i) { return TimeSpan.FromTicks(i); }
 
+		public static VariableTimeSpan Year(this int y) { return Years(y); }
+		public static VariableTimeSpan Month(this int m) { return Months(m); }
 		public static TimeSpan Week(this double i) { return Weeks(i); }
 		public static TimeSpan Day(this double i) { return Days(i); }
 		public static TimeSpan Hour(this double i) { return Hours(i); }

@@ -8,7 +8,7 @@ namespace FluentTime.Tests
 	public class VariableTimeSpanTest
 	{
 		[Test]
-		public void AddTo_After_and_op_Addition_with_DateTime_are_all_the_same ()
+		public void DateTime_AddTo_After_and_op_Addition_are_all_the_same ()
 		{
 			var twoMonths = new VariableTimeSpan(0, 2);
 			var date = new DateTime(2011, 2, 11);
@@ -19,7 +19,7 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
-		public void AddTo_After_and_op_Addition_with_DateTimeOffset_are_all_the_same ()
+		public void DateTimeOffset_AddTo_After_and_op_Addition_are_all_the_same ()
 		{
 			var twoMonths = new VariableTimeSpan(0, 2);
 			var date = DateTimeOffset.Parse("2011/02/11 11:35 +2");
