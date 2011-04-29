@@ -7,6 +7,13 @@ namespace FluentTime.Tests
 	[TestFixture]
 	public class VariableTimeSpanTest
 	{
+		[Test] [Ignore]
+		public void Adds_two_VariableTimeSpans () { throw new NotImplementedException(); }
+		[Test] [Ignore]
+		public void Supports_a_TimeSpan_component () { throw new NotImplementedException(); }
+		[Test] [Ignore]
+		public void Adds_to_a_TimeSpan_in_both_directions () { throw new NotImplementedException(); }
+
 		[Test]
 		public void DateTime_AddTo_After_and_op_Addition_are_all_the_same ()
 		{
