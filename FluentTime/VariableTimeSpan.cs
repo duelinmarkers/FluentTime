@@ -10,8 +10,8 @@ namespace FluentTime
 
 		public VariableTimeSpan (int years, int months)
 		{
-			this.years = years;
-			this.months = months;
+			this.years = years + (months / 12);
+			this.months = months % 12;
 		}
 		
 		public DateTime AddTo(DateTime dateTime)

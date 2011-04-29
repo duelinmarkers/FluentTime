@@ -93,6 +93,14 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
+		public void Rolls_12_months_into_a_year_for_equality_comparison ()
+		{
+			Assert.IsTrue(new VariableTimeSpan(1, 0) == new VariableTimeSpan(0, 12));
+			Assert.IsTrue(new VariableTimeSpan(1, 1) == new VariableTimeSpan(0, 13));
+			Assert.IsTrue(new VariableTimeSpan(2, 2) == new VariableTimeSpan(1, 14));
+		}
+		
+		[Test]
 		public void Generates_reasonable_hash_codes ()
 		{
 			Assert.IsTrue(new VariableTimeSpan(2, 1).GetHashCode() == new VariableTimeSpan(2, 1).GetHashCode());
