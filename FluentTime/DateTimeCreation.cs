@@ -16,5 +16,8 @@ namespace FluentTime
 		public static DateTime October  (this int day, int year) { return new DateTime(year, 10, day); }
 		public static DateTime November (this int day, int year) { return new DateTime(year, 11, day); }
 		public static DateTime December (this int day, int year) { return new DateTime(year, 12, day); }
+		
+		public static DateTime Utc(this DateTime d) { return DateTime.SpecifyKind(d, DateTimeKind.Utc); }
+		public static DateTime Local(this DateTime d) { return DateTime.SpecifyKind(d, DateTimeKind.Local); }
 	}
 }

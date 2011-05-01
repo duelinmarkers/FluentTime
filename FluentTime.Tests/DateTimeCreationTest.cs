@@ -25,10 +25,23 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
-		public void Created_dates_have_Kind_Unspecified ()
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_invalid_dates ()
+		{
+			30.February(2010);
+		}
+		
+		[Test]
+		public void Created_dates_have_Kind_Unspecified_by_default ()
 		{
 			Assert.That(5.January(2011).Kind, Is.EqualTo(DateTimeKind.Unspecified));
 		}
+		
+		[Test]
+		public void DateTimeKind_can_be_specified ()
+		{
+			Assert.That(5.January(2011).Utc(),   Is.EqualTo(new DateTime(2011, 1, 5, 0, 0, 0, DateTimeKind.Utc)));
+			Assert.That(5.January(2011).Local(), Is.EqualTo(new DateTime(2011, 1, 5, 0, 0, 0, DateTimeKind.Local)));
+		}
 	}
 }
-
