@@ -8,7 +8,7 @@ namespace FluentTime.Tests
 	public class DateTimeCreationTest
 	{
 		[Test]
-		public void Creates_dates_readably ()
+		public void Creates_dates_readably_with_month_methods ()
 		{
 			Assert.That(1.January(2001),    Is.EqualTo(new DateTime(2001, 1, 1)));
 			Assert.That(11.February(2011),  Is.EqualTo(new DateTime(2011, 2, 11)));
@@ -32,6 +32,33 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
+		public void Time_can_be_specified_with_At ()
+		{
+			Assert.That(1.January(2001).At(11),         Is.EqualTo(new DateTime(2001, 1, 1, 11, 0, 0)));
+			Assert.That(1.January(2001).At(12, 30),     Is.EqualTo(new DateTime(2001, 1, 1, 12, 30, 0)));
+			Assert.That(1.January(2001).At(13, 30, 22), Is.EqualTo(new DateTime(2001, 1, 1, 13, 30, 22)));
+		}
+		
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_too_high_hour () { 1.January(2010).At(24); }
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_too_low_hour () { 1.January(2010).At(-1); }
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_too_high_minute () { 1.January(2010).At(11, 60); }
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_too_low_minute () { 1.January(2010).At(11, -1); }
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_too_high_second () { 1.January(2010).At(23, 59, 60); }
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Throws_ArgumentOutOfRangeException_on_too_low_second () { 1.January(2010).At(23, 59, -1); }
+		
+		[Test]
 		public void Created_dates_have_Kind_Unspecified_by_default ()
 		{
 			Assert.That(5.January(2011).Kind, Is.EqualTo(DateTimeKind.Unspecified));
@@ -40,8 +67,8 @@ namespace FluentTime.Tests
 		[Test]
 		public void DateTimeKind_can_be_specified ()
 		{
-			Assert.That(5.January(2011).Utc(),   Is.EqualTo(new DateTime(2011, 1, 5, 0, 0, 0, DateTimeKind.Utc)));
-			Assert.That(5.January(2011).Local(), Is.EqualTo(new DateTime(2011, 1, 5, 0, 0, 0, DateTimeKind.Local)));
+			Assert.That(5.January(2011).At(10, 15).Utc(),   Is.EqualTo(new DateTime(2011, 1, 5, 10, 15, 0, DateTimeKind.Utc)));
+			Assert.That(5.January(2011).At(10, 15).Local(), Is.EqualTo(new DateTime(2011, 1, 5, 10, 15, 0, DateTimeKind.Local)));
 		}
 	}
 }
