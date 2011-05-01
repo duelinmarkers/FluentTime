@@ -12,17 +12,22 @@ namespace FluentTime
 		
 		public static DateTimeOffset Offset(this DateTime d, int hours)
 		{
-			return Offset(d, TimeSpan.FromHours(hours));
+			return d.Offset(TimeSpan.FromHours(hours));
 		}
 		
 		public static DateTimeOffset OffsetFor(this DateTime d, TimeZoneInfo zone)
 		{
-			return Offset(d, zone.GetUtcOffset(d));
+			return d.Offset(zone.GetUtcOffset(d));
 		}
 		
 		public static DateTimeOffset OffsetFor(this DateTime d, string timeZoneId)
 		{
-			return OffsetFor(d, TimeZoneInfo.FindSystemTimeZoneById(timeZoneId));
+			return d.OffsetFor(TimeZoneInfo.FindSystemTimeZoneById(timeZoneId));
+		}
+		
+		public static DateTimeOffset OffsetForLocal(this DateTime d)
+		{
+			return d.OffsetFor(TimeZoneInfo.Local);
 		}
 	}
 }
