@@ -57,6 +57,44 @@ namespace FluentTime.Tests
 		[Test]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void Throws_ArgumentOutOfRangeException_on_too_low_second () { 1.January(2010).At(23, 59, -1); }
+
+		[Test]
+		public void PM_adds_twelve_hours_to_a_twelve_hour_time ()
+		{
+			Assert.That(1.January(2001).At(10).PM(), Is.EqualTo(new DateTime(2001, 1, 1, 22, 0, 0)));
+		}
+
+		[Test]
+		public void PM_does_nothing_with_hour_of_12 ()
+		{
+			Assert.That(1.January(2001).At(12).PM(), Is.EqualTo(new DateTime(2001, 1, 1, 12, 0, 0)));
+		}
+		
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void PM_throws_with_hour_greater_than_12 ()
+		{
+			1.January(2001).At(13).PM();
+		}
+
+		[Test]
+		public void AM_subtracts_twelve_hours_from_a_twelve_hour_time_with_hour_of_12 ()
+		{
+			Assert.That(1.January(2001).At(12).AM(), Is.EqualTo(new DateTime(2001, 1, 1, 0, 0, 0)));
+		}
+
+		[Test]
+		public void AM_does_nothing_to_a_twelve_hour_time_with_hour_less_than_12 ()
+		{
+			Assert.That(1.January(2001).At(11).AM(), Is.EqualTo(new DateTime(2001, 1, 1, 11, 0, 0)));
+		}
+		
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void AM_throws_with_hour_greater_than_12 ()
+		{
+			1.January(2001).At(13).AM();
+		}
 		
 		[Test]
 		public void Created_dates_have_Kind_Unspecified_by_default ()

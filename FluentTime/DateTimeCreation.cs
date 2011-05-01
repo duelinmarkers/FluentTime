@@ -26,5 +26,27 @@ namespace FluentTime
 		{
 			return new DateTime(d.Year, d.Month, d.Day, hour, minute, second);
 		}
+		
+		public static DateTime PM(this DateTime d)
+		{
+			Reject24HourTime(d);
+			if (d.Hour == 12)
+				return d;
+			return d.AddHours(12);
+		}
+		
+		public static DateTime AM(this DateTime d)
+		{
+			Reject24HourTime(d);
+			if (d.Hour < 12)
+				return d;
+			return d.AddHours(-12);
+		}
+		
+		private static void Reject24HourTime(DateTime d)
+		{
+			if (d.Hour > 12)
+				throw new ArgumentOutOfRangeException("d", string.Format("Not a 12-hour time. Hour is {0}.", d.Hour));
+		}
 	}
 }
