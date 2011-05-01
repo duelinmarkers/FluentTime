@@ -39,6 +39,7 @@
     <Compile Include="VariableTimeSpan.cs" />
     <Compile Include="TimeSpanCreation.cs" />
     <Compile Include="DateTimeCreation.cs" />
+    <Compile Include="DateTimeOffsetting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
