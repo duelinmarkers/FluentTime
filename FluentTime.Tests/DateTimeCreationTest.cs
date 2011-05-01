@@ -36,7 +36,7 @@ namespace FluentTime.Tests
 		public void Time_can_be_specified_with_At ()
 		{
 			Assert.That(1.January(2001).At(11),         Is.EqualTo(new DateTime(2001, 1, 1, 11, 0, 0)));
-			Assert.That(1.January(2001).At(12, 30),     Is.EqualTo(new DateTime(2001, 1, 1, 12, 30, 0)));
+			Assert.That(1.January(2001).At(12, 06),     Is.EqualTo(new DateTime(2001, 1, 1, 12, 6, 0)));
 			Assert.That(1.January(2001).At(13, 30, 22), Is.EqualTo(new DateTime(2001, 1, 1, 13, 30, 22)));
 		}
 		
