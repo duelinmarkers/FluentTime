@@ -39,6 +39,7 @@
     <Compile Include="TimeSpanExtensionTest.cs" />
     <Compile Include="VariableTimeSpanTest.cs" />
     <Compile Include="TimeSpanCreationTest.cs" />
+    <Compile Include="DateTimeCreationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentTime\FluentTime.csproj">
