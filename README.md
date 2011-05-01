@@ -11,15 +11,15 @@ Do stuff like this:
     ...
     Assert.That(actual, Is.LessThan(50.Milliseconds().After(expected)));
     ...
-    var bestDaysOfMyLife = 30.Days().Ago()
+    var bestDaysOfMyLife = 30.Days().Ago();
+    ...
+    var movingAppointment = 15.May(2011).At(2).PM();
 
-The library supports both DateTime and DateTimeOffset and returns the same
-type you start with. The Offset of the input DateTimeOffset is maintained.
+The "Before" and "After" stuff supports both DateTime and DateTimeOffset and
+returns the same type you start with. The Offset of the input DateTimeOffset is
+maintained.
 
-To Do
------
-
-"Abstract" time spans with variable-length calendar units like month, year, and quarter.
+Look at the tests for details.
 
 ---
 
