@@ -6,7 +6,7 @@ using NUnit.Framework.SyntaxHelpers;
 namespace FluentTime.Tests
 {
 	[TestFixture]
-	public class NumberExtensionTest
+	public class TimeSpanCreationTest
 	{
 		[Test]
 		public void Creates_TimeSpans_readably_with_ints ()

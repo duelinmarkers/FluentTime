@@ -37,8 +37,8 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="TimeSpanExtensionTest.cs" />
-    <Compile Include="NumberExtensionTest.cs" />
     <Compile Include="VariableTimeSpanTest.cs" />
+    <Compile Include="TimeSpanCreationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentTime\FluentTime.csproj">

@@ -36,8 +36,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="TimeSpanExtension.cs" />
-    <Compile Include="NumberExtension.cs" />
     <Compile Include="VariableTimeSpan.cs" />
+    <Compile Include="TimeSpanCreation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

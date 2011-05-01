@@ -3,7 +3,7 @@ using System;
 
 namespace FluentTime
 {
-	public static class NumberExtension
+	public static class TimeSpanCreation
 	{
 		public static VariableTimeSpan Years(this int y) { return new VariableTimeSpan(y, 0); }
 		public static VariableTimeSpan Months(this int m) { return new VariableTimeSpan(0, m); }
