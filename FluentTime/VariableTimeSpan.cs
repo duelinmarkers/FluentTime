@@ -7,26 +7,35 @@ namespace FluentTime
 	{
 		private readonly int years;
 		private readonly int months;
+		private readonly TimeSpan timeSpan;
 
-		public VariableTimeSpan (int years, int months)
+		public VariableTimeSpan(int years, int months) : this(years, months, TimeSpan.Zero) {}
+		
+		public VariableTimeSpan(int years, int months, TimeSpan timeSpan)
 		{
 			this.years = years + (months / 12);
 			this.months = months % 12;
+			this.timeSpan = timeSpan;
 		}
 		
 		public VariableTimeSpan AddTo(VariableTimeSpan other)
 		{
-			return new VariableTimeSpan(years + other.years, months + other.months);
+			return new VariableTimeSpan(years + other.years, months + other.months, timeSpan + other.timeSpan);
+		}
+		
+		public VariableTimeSpan AddTo(TimeSpan timeSpan)
+		{
+			return new VariableTimeSpan(years, months, this.timeSpan + timeSpan);
 		}
 		
 		public DateTime AddTo(DateTime dateTime)
 		{
-			return dateTime.AddYears(years).AddMonths(months);
+			return dateTime.AddYears(years).AddMonths(months).Add(timeSpan);
 		}
 		
 		public DateTimeOffset AddTo(DateTimeOffset dateTime)
 		{
-			return dateTime.AddYears(years).AddMonths(months);
+			return dateTime.AddYears(years).AddMonths(months).Add(timeSpan);
 		}
 		
 		public DateTime After(DateTime dateTime)
@@ -39,34 +48,20 @@ namespace FluentTime
 			return AddTo(dateTime);
 		}
 		
-		public static VariableTimeSpan operator +(VariableTimeSpan one, VariableTimeSpan other)
-		{
-			return one.AddTo(other);
-		}
+		public static VariableTimeSpan operator +(VariableTimeSpan one, VariableTimeSpan other) { return one.AddTo(other); }
 		
-		public static DateTime operator +(VariableTimeSpan span, DateTime dateTime)
-		{
-			return span.After(dateTime);
-		}
+		public static VariableTimeSpan operator +(TimeSpan timeSpan, VariableTimeSpan v) { return v.AddTo(timeSpan); }
+		public static VariableTimeSpan operator +(VariableTimeSpan v, TimeSpan timeSpan) { return v.AddTo(timeSpan); }
+
+		public static DateTime operator +(VariableTimeSpan span, DateTime dateTime) { return span.AddTo(dateTime); }
+		public static DateTime operator +(DateTime dateTime, VariableTimeSpan span) { return span.AddTo(dateTime); }
 		
-		public static DateTime operator +(DateTime dateTime, VariableTimeSpan span)
-		{
-			return span.After(dateTime);
-		}
-		
-		public static DateTimeOffset operator +(VariableTimeSpan span, DateTimeOffset dateTime)
-		{
-			return span.After(dateTime);
-		}
-		
-		public static DateTimeOffset operator +(DateTimeOffset dateTime, VariableTimeSpan span)
-		{
-			return span.After(dateTime);
-		}
-		
+		public static DateTimeOffset operator +(VariableTimeSpan span, DateTimeOffset dateTime) { return span.AddTo(dateTime); }
+		public static DateTimeOffset operator +(DateTimeOffset dateTime, VariableTimeSpan span) { return span.AddTo(dateTime); }
+
 		public bool Equals(VariableTimeSpan other)
 		{
-			return months == other.months && years == other.years;
+			return months == other.months && years == other.years && timeSpan == other.timeSpan;
 		}
 		
 		public override bool Equals(object obj)

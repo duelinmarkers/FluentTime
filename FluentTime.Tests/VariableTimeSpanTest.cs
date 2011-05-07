@@ -12,12 +12,8 @@ namespace FluentTime.Tests
 		public void Adds_two_VariableTimeSpans ()
 		{
 			Assert.That(2.Years() + 3.Months(), Is.EqualTo(new VariableTimeSpan(2, 3)));
+			Assert.That(1.Year() + 2.Years(), Is.EqualTo(3.Years()));
 		}
-
-		[Test] [Ignore]
-		public void Supports_a_TimeSpan_component () { throw new NotImplementedException(); }
-		[Test] [Ignore]
-		public void Adds_to_a_TimeSpan_in_both_directions () { throw new NotImplementedException(); }
 
 		[Test]
 		public void DateTime_AddTo_After_and_op_Addition_are_all_the_same ()
@@ -92,6 +88,25 @@ namespace FluentTime.Tests
 			Assert.AreEqual(DateTimeOffset.Parse("2011/02/28 12:17:00 AM -4:00"), 
 			                oneYearOneMonth.AddTo(DateTimeOffset.Parse("2010/01/28 12:17:00 AM -4:00")));
 		}
+
+		[Test]
+		public void Supports_a_TimeSpan_component_for_addition ()
+		{
+			var twoMonthsTwoDays = new VariableTimeSpan(0, 2, 2.Days());
+			Assert.That(2.February(2001) + twoMonthsTwoDays, Is.EqualTo(4.April(2001))); // adding to DateTime
+			Assert.That(1.May(2001).At(4).Offset(-4) + twoMonthsTwoDays,                 // adding to DateTimeOffset
+			            Is.EqualTo(DateTimeOffset.Parse("2001/07/3 04:00 -4")));
+			Assert.That(1.Year(1.Month()) + twoMonthsTwoDays,                            // adding to VariableTimeSpan
+			            Is.EqualTo(new VariableTimeSpan(1, 3, 2.Days())));
+			Assert.That(3.Days() + twoMonthsTwoDays,                                     // adding to TimeSpan
+			            Is.EqualTo(new VariableTimeSpan(0, 2, 5.Days())));
+		}
+
+		[Test]
+		public void Adds_to_a_TimeSpan_in_both_directions ()
+		{
+			Assert.That(2.Months() + 2.Days(), Is.EqualTo(2.Days() + 2.Months()));
+		}
 		
 		[Test]
 		public void Compares_equality_in_basic_cases ()
@@ -102,6 +117,7 @@ namespace FluentTime.Tests
 			Assert.IsFalse(new VariableTimeSpan(2, 1) == new VariableTimeSpan(2, 2));
 			Assert.IsTrue(new VariableTimeSpan(2, 1) != new VariableTimeSpan(1, 1));
 			Assert.IsFalse(new VariableTimeSpan(2, 1) == new VariableTimeSpan(1, 1));
+			Assert.IsTrue(new VariableTimeSpan(2, 1, 1.Day()) != new VariableTimeSpan(2, 1, 2.Days()));
 		}
 		
 		[Test]
