@@ -40,6 +40,8 @@
     <Compile Include="TimeSpanCreation.cs" />
     <Compile Include="DateTimeCreation.cs" />
     <Compile Include="DateTimeOffsetting.cs" />
+    <Compile Include="AdjustableCurrentTime.cs" />
+    <Compile Include="DateTimeShortCreators.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

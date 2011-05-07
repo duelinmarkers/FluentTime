@@ -44,5 +44,38 @@ namespace FluentTime
 		public static TimeSpan Second(this double i, TimeSpan otherTime) { return Seconds(i, otherTime); }
 		public static TimeSpan Millisecond(this double i, TimeSpan otherTime) { return Milliseconds(i, otherTime); }
 		public static TimeSpan Tick(this long i, TimeSpan otherTime) { return Ticks(i, otherTime); }
+
+
+        public static TimeSpan Weeks(this int i) { return Weeks((double)i); }
+        public static TimeSpan Days(this int i) { return Days((double)i); }
+        public static TimeSpan Hours(this int i) { return Hours((double)i); }
+        public static TimeSpan Minutes(this int i) { return Minutes((double)i); }
+        public static TimeSpan Seconds(this int i) { return Seconds((double)i); }
+        public static TimeSpan Milliseconds(this int i) { return Milliseconds((double)i); }
+        public static TimeSpan Ticks(this int i) { return Ticks((long)i); }
+
+        public static TimeSpan Week(this int i) { return Week((double)i); }
+        public static TimeSpan Day(this int i) { return Day((double)i); }
+        public static TimeSpan Hour(this int i) { return Hour((double)i); }
+        public static TimeSpan Minute(this int i) { return Minute((double)i); }
+        public static TimeSpan Second(this int i) { return Second((double)i); }
+        public static TimeSpan Millisecond(this int i) { return Millisecond((double)i); }
+        public static TimeSpan Tick(this int i) { return Tick((long)i); }
+
+        public static TimeSpan Weeks(this int i, TimeSpan otherTime) { return Weeks((double)i, otherTime); }
+        public static TimeSpan Days(this int i, TimeSpan otherTime) { return Days((double)i, otherTime); }
+        public static TimeSpan Hours(this int i, TimeSpan otherTime) { return Hours((double)i, otherTime); }
+        public static TimeSpan Minutes(this int i, TimeSpan otherTime) { return Minutes((double)i, otherTime); }
+        public static TimeSpan Seconds(this int i, TimeSpan otherTime) { return Seconds((double)i, otherTime); }
+        public static TimeSpan Milliseconds(this int i, TimeSpan otherTime) { return Milliseconds((double)i, otherTime); }
+        public static TimeSpan Ticks(this int i, TimeSpan otherTime) { return Ticks((long)i,otherTime); }
+
+        public static TimeSpan Week(this int i, TimeSpan otherTime) { return Weeks((double)i, otherTime); }
+        public static TimeSpan Day(this int i, TimeSpan otherTime) { return Days((double)i, otherTime); }
+        public static TimeSpan Hour(this int i, TimeSpan otherTime) { return Hours((double)i, otherTime); }
+        public static TimeSpan Minute(this int i, TimeSpan otherTime) { return Minutes((double)i, otherTime); }
+        public static TimeSpan Second(this int i, TimeSpan otherTime) { return Seconds((double)i, otherTime); }
+        public static TimeSpan Millisecond(this int i, TimeSpan otherTime) { return Milliseconds((double)i, otherTime); }
+        public static TimeSpan Tick(this int i, TimeSpan otherTime) { return Ticks(i, otherTime); }
 	}
 }
