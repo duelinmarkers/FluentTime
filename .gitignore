@@ -6,4 +6,6 @@ obj/
 _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
+*.pidb
+*.userprefs
 
