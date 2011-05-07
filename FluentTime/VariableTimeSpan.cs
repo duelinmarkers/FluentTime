@@ -14,6 +14,11 @@ namespace FluentTime
 			this.months = months % 12;
 		}
 		
+		public VariableTimeSpan AddTo(VariableTimeSpan other)
+		{
+			return new VariableTimeSpan(years + other.years, months + other.months);
+		}
+		
 		public DateTime AddTo(DateTime dateTime)
 		{
 			return dateTime.AddYears(years).AddMonths(months);
@@ -32,6 +37,11 @@ namespace FluentTime
 		public DateTimeOffset After(DateTimeOffset dateTime)
 		{
 			return AddTo(dateTime);
+		}
+		
+		public static VariableTimeSpan operator +(VariableTimeSpan one, VariableTimeSpan other)
+		{
+			return one.AddTo(other);
 		}
 		
 		public static DateTime operator +(VariableTimeSpan span, DateTime dateTime)

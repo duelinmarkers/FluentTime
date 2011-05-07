@@ -1,14 +1,19 @@
 // Copyright 2011 ThoughtWorks, Inc. See LICENSE.txt for licensing info.
 using System;
 using NUnit.Framework;
+using NUnit.Framework.SyntaxHelpers;
 
 namespace FluentTime.Tests
 {
 	[TestFixture]
 	public class VariableTimeSpanTest
 	{
-		[Test] [Ignore]
-		public void Adds_two_VariableTimeSpans () { throw new NotImplementedException(); }
+		[Test]
+		public void Adds_two_VariableTimeSpans ()
+		{
+			Assert.That(2.Years() + 3.Months(), Is.EqualTo(new VariableTimeSpan(2, 3)));
+		}
+
 		[Test] [Ignore]
 		public void Supports_a_TimeSpan_component () { throw new NotImplementedException(); }
 		[Test] [Ignore]
