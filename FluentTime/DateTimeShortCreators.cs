@@ -1,29 +1,22 @@
-﻿using System;
+﻿// Copyright 2011 ThoughtWorks, Inc. See LICENSE.txt for licensing info.
+using System;
 
 namespace FluentTime
 {
     public static class Today
     {
-        public static DateTime At(int hour) { return AdjustableCurrentTime.Today.At(hour, 0, 0); }
-        public static DateTime At(int hour, int minute) { return AdjustableCurrentTime.Today.At(hour, minute, 0); }
-        public static DateTime At(int hour, int minute, int second) { return AdjustableCurrentTime.Today.At(hour, minute, second); }
-
-   }
+        public static DateTime At(int hour, int minute = 0, int second = 0) { return AdjustableCurrentTime.Today.At(hour, minute, second); }
+    }
 
     public static class Tomorrow
     {
-        public static DateTime At(int hour) { return AdjustableCurrentTime.Today.AddDays(1).At(hour, 0, 0); }
-        public static DateTime At(int hour, int minute) { return AdjustableCurrentTime.Today.AddDays(1).At(hour, minute, 0); }
-        public static DateTime At(int hour, int minute, int second) { return AdjustableCurrentTime.Today.AddDays(1).At(hour, minute, second); }
+        public static DateTime At(int hour, int minute = 0, int second = 0) { return AdjustableCurrentTime.Today.AddDays(1).At(hour, minute, second); }
     }
 
     public static class Yesterday
     {
-        public static DateTime At(int hour) { return AdjustableCurrentTime.Today.AddDays(-1).At(hour, 0, 0); }
-        public static DateTime At(int hour, int minute) { return AdjustableCurrentTime.Today.AddDays(-1).At(hour, minute, 0); }
-        public static DateTime At(int hour, int minute, int second) { return AdjustableCurrentTime.Today.AddDays(-1).At(hour, minute, second); }
-
-     }
+        public static DateTime At(int hour, int minute = 0, int second = 0) { return AdjustableCurrentTime.Today.AddDays(-1).At(hour, minute, second); }
+    }
 
     public static class Next
     {
