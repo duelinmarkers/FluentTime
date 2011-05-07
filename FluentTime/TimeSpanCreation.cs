@@ -25,6 +25,8 @@ namespace FluentTime
 		public static TimeSpan Millisecond(this double i) { return Milliseconds(i); }
 		public static TimeSpan Tick(this long i) { return Ticks(i); }
 
+		public static VariableTimeSpan Years(this int y, VariableTimeSpan otherTime) { return Years(y) + otherTime; }
+		public static VariableTimeSpan Months(this int m, VariableTimeSpan otherTime) { return Months(m) + otherTime; }
 		public static TimeSpan Weeks(this double i, TimeSpan otherTime) { return Weeks(i) + otherTime; }
 		public static TimeSpan Days(this double i, TimeSpan otherTime) { return Days(i) + otherTime; }
 		public static TimeSpan Hours(this double i, TimeSpan otherTime) { return Hours(i) + otherTime; }
@@ -33,6 +35,8 @@ namespace FluentTime
 		public static TimeSpan Milliseconds(this double i, TimeSpan otherTime) { return Milliseconds(i) + otherTime; }
 		public static TimeSpan Ticks(this long i, TimeSpan otherTime) { return Ticks(i) + otherTime; }
 
+		public static VariableTimeSpan Year(this int y, VariableTimeSpan otherTime) { return Years(y) + otherTime; }
+		public static VariableTimeSpan Month(this int m, VariableTimeSpan otherTime) { return Months(m) + otherTime; }
 		public static TimeSpan Week(this double i, TimeSpan otherTime) { return Weeks(i, otherTime); }
 		public static TimeSpan Day(this double i, TimeSpan otherTime) { return Days(i, otherTime); }
 		public static TimeSpan Hour(this double i, TimeSpan otherTime) { return Hours(i, otherTime); }

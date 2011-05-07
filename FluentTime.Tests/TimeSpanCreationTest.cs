@@ -77,5 +77,12 @@ namespace FluentTime.Tests
 			Assert.That(1.Week(1.Day(1.Hour(1.Minute(1.Second(1.Millisecond(1.Tick())))))), 
 			            Is.EqualTo(7.Days(24.Hours(60.Minutes(60.Seconds(1001.Milliseconds()))) + 1.Tick())));
 		}
+		
+		[Test]
+		public void Stacks_VariableTimeSpans_readably_in_plural_and_singular ()
+		{
+			Assert.That(2.Years(3.Months()), Is.EqualTo(new VariableTimeSpan(2, 3)));
+			Assert.That(1.Year(1.Month()), Is.EqualTo(new VariableTimeSpan(1, 1)));
+		}
 	}
 }
