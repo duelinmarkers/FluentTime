@@ -1,2 +1,9 @@
 test-results
+*.[Oo]bj
+*.user
 obj/
+[Bb]in
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+
