@@ -11,24 +11,26 @@ namespace FluentTime.Tests
 		[Test]
 		public void Creates_TimeSpans_readably_with_ints ()
 		{
-			Assert.That(2.Weeks(),        Is.EqualTo(TimeSpan.FromDays(14)));
-			Assert.That(2.Days(),         Is.EqualTo(TimeSpan.FromDays(2)));
-			Assert.That(2.Hours(),        Is.EqualTo(TimeSpan.FromHours(2)));
-			Assert.That(2.Minutes(),      Is.EqualTo(TimeSpan.FromMinutes(2)));
-			Assert.That(2.Seconds(),      Is.EqualTo(TimeSpan.FromSeconds(2)));
-			Assert.That(2.Milliseconds(), Is.EqualTo(TimeSpan.FromMilliseconds(2)));
-			Assert.That(2.Ticks(),        Is.EqualTo(TimeSpan.FromTicks(2)));
+			int two = 2;
+			Assert.That(two.Weeks(),        Is.EqualTo(TimeSpan.FromDays(14)));
+			Assert.That(two.Days(),         Is.EqualTo(TimeSpan.FromDays(2)));
+			Assert.That(two.Hours(),        Is.EqualTo(TimeSpan.FromHours(2)));
+			Assert.That(two.Minutes(),      Is.EqualTo(TimeSpan.FromMinutes(2)));
+			Assert.That(two.Seconds(),      Is.EqualTo(TimeSpan.FromSeconds(2)));
+			Assert.That(two.Milliseconds(), Is.EqualTo(TimeSpan.FromMilliseconds(2)));
+			Assert.That(two.Ticks(),        Is.EqualTo(TimeSpan.FromTicks(2)));
 		}
 		
 		[Test]
 		public void Creates_TimeSpans_readably_with_doubles ()
 		{
-			Assert.That(1.5.Weeks(), Is.EqualTo(new TimeSpan(days:10, hours:12, minutes:0, seconds:0)));
-			Assert.That(1.5.Days(), Is.EqualTo(new TimeSpan(days:1, hours:12, minutes:0, seconds:0)));
-			Assert.That(1.5.Hours(), Is.EqualTo(new TimeSpan(hours:1, minutes:30, seconds:0)));
-			Assert.That(1.5.Minutes(), Is.EqualTo(new TimeSpan(hours:0, minutes:1, seconds:30)));
-			Assert.That(1.5.Seconds(), Is.EqualTo(new TimeSpan(days:0, hours:0, minutes:0, seconds:1, milliseconds:500)));
-			Assert.That(1.5.Milliseconds(), Is.EqualTo(TimeSpan.FromTicks((long)(TimeSpan.TicksPerMillisecond * 1.5))));
+			double oneAndAHalf = 1.5;
+			Assert.That(oneAndAHalf.Weeks(), Is.EqualTo(new TimeSpan(days:10, hours:12, minutes:0, seconds:0)));
+			Assert.That(oneAndAHalf.Days(), Is.EqualTo(new TimeSpan(days:1, hours:12, minutes:0, seconds:0)));
+			Assert.That(oneAndAHalf.Hours(), Is.EqualTo(new TimeSpan(hours:1, minutes:30, seconds:0)));
+			Assert.That(oneAndAHalf.Minutes(), Is.EqualTo(new TimeSpan(hours:0, minutes:1, seconds:30)));
+			Assert.That(oneAndAHalf.Seconds(), Is.EqualTo(new TimeSpan(days:0, hours:0, minutes:0, seconds:1, milliseconds:500)));
+			Assert.That(oneAndAHalf.Milliseconds(), Is.EqualTo(TimeSpan.FromTicks((long)(TimeSpan.TicksPerMillisecond * 1.5))));
 		}
 		
 		[Test]
