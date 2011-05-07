@@ -21,9 +21,7 @@ namespace FluentTime
 		public static DateTime Utc  (this DateTime d) { return DateTime.SpecifyKind(d, DateTimeKind.Utc); }
 		public static DateTime Local(this DateTime d) { return DateTime.SpecifyKind(d, DateTimeKind.Local); }
 		
-		public static DateTime At(this DateTime d, int hour)             { return d.At(hour, 0, 0); }
-		public static DateTime At(this DateTime d, int hour, int minute) { return d.At(hour, minute, 0); }
-		public static DateTime At(this DateTime d, int hour, int minute, int second)
+		public static DateTime At(this DateTime d, int hour, int minute = 0, int second = 0)
 		{
 			return new DateTime(d.Year, d.Month, d.Day, hour, minute, second);
 		}
