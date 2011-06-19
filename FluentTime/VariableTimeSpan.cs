@@ -5,6 +5,8 @@ namespace FluentTime
 {
 	public struct VariableTimeSpan : IEquatable<VariableTimeSpan>
 	{
+		private const int MonthsInYear = 12;
+
 		private readonly int years;
 		private readonly int months;
 		private readonly TimeSpan timeSpan;
@@ -13,8 +15,8 @@ namespace FluentTime
 		
 		public VariableTimeSpan(int years, int months, TimeSpan timeSpan)
 		{
-			this.years = years + (months / 12);
-			this.months = months % 12;
+			this.years = years + (months / MonthsInYear);
+			this.months = months % MonthsInYear;
 			this.timeSpan = timeSpan;
 		}
 		
