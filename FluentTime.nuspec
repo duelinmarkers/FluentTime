@@ -2,15 +2,15 @@
 	<metadata>
 		<id>FluentTime</id>
 		<version>0.1.0.0</version>
-		<authors>ThoughtWorks, Inc.</authors>
+		<authors>John D. Hume</authors>
 		<description>
-A fluent interface in .NET for working with dates and times, inspired by ActiveSupport's active_support/core_ext/numeric/time extensions.			
+A fluent interface in .NET for working with dates and times, inspired by ActiveSupport's time extensions.
 		</description>
 		<projectUrl>https://github.com/duelinmarkers/FluentTime</projectUrl>
 		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<copyright>Copyright 2011 ThoughtWorks, Inc.</copyright>
-		<tags>fluent time date datetime extension methods thoughtwork</tags>
+		<tags>fluent time date datetime timespan extension</tags>
 	</metadata>
 	<files>
 		<file src="FluentTime\bin\Debug\*.dll" target="lib" /> 
